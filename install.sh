@@ -37,6 +37,13 @@ fatal () {
 install -m644 61-keyboard.hwdb /etc/udev/hwdb.d/ || fatal "failed installing 61-keyboard.hwdb"
 install -m644 61-sensor-pixelbook.rules /etc/udev/rules.d/ || fatal "failed installing 61-sensor-pixelbook.rules"
 
+if [[ -e /etc/libinput/local-overrides.quirks ]]; then
+	echo "found local-overrides.quirks, skipping touchpad fix"
+else
+	mkdir -p /etc/libinput/
+	install -m644 local-overrides.quirks /etc/libinput/ || echo "warning: cannot install local-overrides.quirks"
+fi
+
 mkdir -p $BINDIR
 
 for bin in $BINARIES
