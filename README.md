@@ -6,7 +6,7 @@ userspace drivers for pixelbooks running vanilla kernel
  * Backlight control for bulitin screen
  * Key combos for missing keys
  * Keyboard backlight adjusting to ambient light
- 
+
 ## Partially working features
 
  * Sensors
@@ -15,7 +15,7 @@ userspace drivers for pixelbooks running vanilla kernel
    - Trying enabling sensor buffering result in EINVAL
  * Touchpad
    - Gestures are not supported
-   
+
 ## Completely unusable devices
 
  * Speaker and audio jack
