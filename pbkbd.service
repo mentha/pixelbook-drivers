@@ -1,0 +1,9 @@
+[Unit]
+Description=Pixelbook Keyboard Driver
+
+[Service]
+ExecStart=/usr/local/sbin/pbkbd
+
+[Install]
+WantedBy=getty.target
+WantedBy=multi-user.target

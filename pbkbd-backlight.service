@@ -1,0 +1,8 @@
+[Unit]
+Description=Pixelbook Keyboard Backlight Driver
+
+[Service]
+ExecStart=/usr/local/sbin/pbkbd-backlight
+
+[Install]
+WantedBy=pbkbd.service

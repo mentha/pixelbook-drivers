@@ -1,0 +1,7 @@
+evdev:atkbd:dmi:bvn*:bvr*:bd*:svnGoogle:pnEve:pvr*
+# hamburger
+ KEYBOARD_KEY_5d=compose
+# search
+ KEYBOARD_KEY_db=fn
+# assistant
+ KEYBOARD_KEY_d8=leftmeta
