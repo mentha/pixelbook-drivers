@@ -1,12 +1,12 @@
-#include "fuse-sysfs.h"
 #include "edp-backlight.h"
-#include <sys/socket.h>
+#include "fuse-sysfs.h"
+#include <errno.h>
 #include <poll.h>
-#include <unistd.h>
-#include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <errno.h>
+#include <string.h>
+#include <sys/socket.h>
+#include <unistd.h>
 
 #define SPEED 1000 /* milliseconds taken to change from 0 to max */
 #define MIN_INTERVAL 10
