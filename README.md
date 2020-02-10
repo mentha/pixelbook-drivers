@@ -12,7 +12,6 @@ userspace drivers for pixelbooks running vanilla kernel
  * Sensors
    - Accelerometer on the lid is mounted upside down, unconfigured systems would flip the screen accordingly
    - GNOME does not filter out noise from sensors, automatic brightness and automatic screen rotation is unreliable
-   - Trying enabling sensor buffering result in EINVAL
  * Touchpad
    - Gestures are not supported
 
