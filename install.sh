@@ -3,7 +3,7 @@
 BINDIR="/usr/local/sbin"
 SRVDIR="/usr/local/lib/systemd/system"
 BINARIES='pbbacklightfs pbkbd pbkbd-backlight'
-SERVICES='pbbacklightfs@ pbkbd pbkbd-backlight'
+SERVICES='pbbacklightfs@ pbbacklightfs-postsleep@ pbkbd pbkbd-backlight'
 
 install &> /dev/null
 if [[ $? -eq 127 ]]; then
@@ -96,5 +96,5 @@ done
 
 for bl in $(ls /sys/class/backlight)
 do
-	systemctl enable "pbbacklightfs@$bl.service"
+	systemctl enable "pbbacklightfs@$bl.service" "pbbacklightfs-postsleep@$bl.service"
 done

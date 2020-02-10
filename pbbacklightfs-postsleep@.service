@@ -1,0 +1,12 @@
+[Unit]
+Description=Restart pixelbook backlight driver after sleep
+Requires=pbbacklightfs@%i.service
+After=sleep.target pbbacklightfs@%i.service
+ConditionPathExists=/sys/class/backlight/%i
+
+[Service]
+Type=oneshot
+ExecStart=/bin/true
+
+[Install]
+WantedBy=sleep.target
