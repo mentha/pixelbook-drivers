@@ -2,7 +2,6 @@
 Description=Pixelbook backlight driver
 Before=multi-user.target
 ConditionPathExists=/sys/class/backlight/%i
-Conflicts=sleep.target
 
 [Service]
 Type=simple
