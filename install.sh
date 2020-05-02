@@ -48,7 +48,7 @@ mkdir -p $BINDIR
 
 for bin in $BINARIES
 do
-	install -s -m700 $bin "$BINDIR" || fatal "failed installing $bin"
+	install -s -m700 $bin "$BINDIR"/ || fatal "failed installing $bin"
 done
 
 systemctl < /dev/null &> /dev/null
@@ -80,9 +80,11 @@ do
 	done
 done
 
+mkdir -p "$SRVDIR"
+
 for srv in $SERVICES
 do
-	install -m644 "$srv.service" "$SRVDIR" || fatal "failed installing service $srv"
+	install -m644 "$srv.service" "$SRVDIR"/ || fatal "failed installing service $srv"
 done
 
 systemctl daemon-reload || fatal "failed reloading systemd"
