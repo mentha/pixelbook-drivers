@@ -11,12 +11,13 @@
 #define SPEED 1000 /* milliseconds taken to change from 0 to max */
 #define MIN_INTERVAL 10
 #define MIN_PERIOD 300
+#define MIN_BRIGHTNESS 300
 
 static int brimap(long long b)
 {
 	long long maxb = 0xffff;
 	long long lowestb = maxb / 100;
-	long long minb = 300; /* minimum useful brightness */
+	long long minb = MIN_BRIGHTNESS; /* minimum useful brightness */
 	if (b == 0)
 		return 0;
 	if (b < lowestb)
@@ -266,7 +267,11 @@ int fuse_sysfs_init(int argc, char **argv,
 		return 1;
 	}
 	if (bl_get(bfd, &lastbri))
-		lastbri = 30000;
+		lastbri = 0;
+	if (lastbri <= MIN_BRIGHTNESS) {
+		lastbri = MIN_BRIGHTNESS;
+		bl_set(bfd, MIN_BRIGHTNESS);
+	}
 	*mnt = argv[1];
 	*ent = entries;
 	return 0;
