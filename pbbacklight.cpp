@@ -20,6 +20,7 @@
 #include <utility>
 
 using std::cerr;
+using std::cout;
 using std::endl;
 using std::list;
 using std::map;
@@ -303,6 +304,22 @@ public:
 int main(int argc, char **argv)
 {
 	try {
+		if (argc >= 2 && starts_with(argv[1], "-")) {
+			PBBacklight bl;
+			if (string(argv[1]) == "-get") {
+				cout << bl.get() << endl;
+			} else if (string(argv[1]) == "-set") {
+				if (argc < 3)
+					return 1;
+				bl.set(std::atoi(argv[2]));
+			} else {
+				cerr << "usage: " << (argc >= 1 ? argv[0] : "pbbacklight") << " [-get] [-set value] [/path/to/sys/class/backlight/xxx]" << endl
+					<< "Pixelbook userspace backlight driver" << endl;
+				return 1;
+			}
+			return 0;
+		}
+
 		BLProxy p;
 		if (argc >= 2) {
 			for (int i = 1; i < argc; i++)
