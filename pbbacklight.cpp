@@ -236,7 +236,6 @@ public:
 			nextbri = cur_bri + perstep * d;
 			ret = interval;
 		}
-		cerr << "step " << cur_bri << " ==> " << nextbri << endl;
 		cur_bri = nextbri;
 		pbbl.set(cur_bri + 0.5);
 		return ret;
