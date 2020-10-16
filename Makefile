@@ -1,6 +1,7 @@
 CFLAGS    := -Wall -Os -DNDEBUG
+CXXFLAGS  := ${CFLAGS} -std=c++17
 
-TARGETS = pbkbd pbkbd-backlight pbbacklightfs
+TARGETS = pbkbd pbkbd-backlight pbbacklight
 
 all: $(TARGETS)
 
@@ -12,6 +13,3 @@ install: all
 
 pbkbd: pbkbd.c keymap.h
 	$(CC) $(CFLAGS) -o $@ pbkbd.c $(shell pkg-config --cflags --libs libevdev)
-
-pbbacklightfs: pbbacklightfs.c fuse-sysfs.c edp-backlight.c fuse-sysfs.h edp-backlight.h
-	$(CC) $(CFLAGS) -o $@ pbbacklightfs.c fuse-sysfs.c edp-backlight.c $(shell pkg-config --cflags --libs fuse)
