@@ -1,5 +1,7 @@
 [Unit]
 Description=Pixelbook Keyboard Backlight Driver
+ConditionPathExists=/sys/class/leds/chromeos::kbd_backlight
+ConditionPathExists=/sys/bus/iio/devices
 
 [Service]
 ExecStart=/usr/local/sbin/pbkbd-backlight

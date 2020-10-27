@@ -1,6 +1,6 @@
 [Unit]
 Description=Pixelbook backlight driver
-Before=multi-user.target
+ConditionPathExists=/sys/class/drm_dp_aux_dev
 
 [Service]
 Type=simple
