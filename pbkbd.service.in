@@ -1,5 +1,6 @@
 [Unit]
 Description=Pixelbook Keyboard Driver
+Wants=pbkbd-backlight.service
 
 [Service]
 ExecStart=@CMAKE_INSTALL_FULL_LIBEXECDIR@/pbkbd
@@ -7,4 +8,3 @@ ExecStart=@CMAKE_INSTALL_FULL_LIBEXECDIR@/pbkbd
 [Install]
 WantedBy=getty.target
 WantedBy=graphical.target
-Also=pbkbd-backlight.service
