@@ -24,10 +24,10 @@ install(FILES
 	"${CMAKE_BINARY_DIR}/pbkbd.service"
 	"${CMAKE_BINARY_DIR}/pbkbd-backlight.service"
 	"${CMAKE_BINARY_DIR}/pbbacklight.service"
-	DESTINATION "${CMAKE_INSTALL_LIBDIR}/systemd/system")
+	DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/systemd/system")
 install(FILES 61-keyboard.hwdb
-	DESTINATION "${CMAKE_INSTALL_LIBDIR}/udev/hwdb.d")
+	DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/udev/hwdb.d")
 install(FILES 61-sensor-pixelbook.rules
-	DESTINATION "${CMAKE_INSTALL_LIBDIR}/udev/rules.d")
+	DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/udev/rules.d")
 install(FILES local-overrides.quirks README.md
 	DESTINATION "${CMAKE_INSTALL_DOCDIR}")

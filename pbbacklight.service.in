@@ -1,6 +1,7 @@
 [Unit]
 Description=Pixelbook backlight driver
 ConditionPathExists=/sys/class/drm_dp_aux_dev
+ConditionPathExists=/sys/class/backlight/intel_backlight
 
 [Service]
 Type=simple

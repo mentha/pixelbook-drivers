@@ -6,5 +6,5 @@ ExecStart=@CMAKE_INSTALL_FULL_LIBEXECDIR@/pbkbd
 
 [Install]
 WantedBy=getty.target
-WantedBy=multi-user.target
+WantedBy=graphical.target
 Also=pbkbd-backlight.service

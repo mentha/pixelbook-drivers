@@ -20,7 +20,7 @@ userspace drivers for pixelbooks running vanilla kernel
 
 # Installing
 
-Run `make install` as root, merge `/etc/libinput/local-overrides.quirks`, and enable `pb{backlight,kbd,kbd-backlight}.service`.
+Run `make install` as root, merge `/etc/libinput/local-overrides.quirks`, and enable `pb{backlight,kbd}.service`.
 
 ## Kernel options
 
