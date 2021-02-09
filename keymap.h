@@ -57,10 +57,10 @@ const int keymap_direct[] = {
 	[0x36] = KEY_RIGHTSHIFT,
 	[0x38] = KEY_LEFTALT,
 	[0x39] = KEY_SPACE,
-	[0x3b] = KEY_BACK,
-	[0x3c] = KEY_REFRESH,
-	[0x3d] = KEY_F11,
-	[0x3e] = KEY_LEFTMETA,
+	[0x3b] = KEY_BACK, /* back keys */
+	[0x3c] = KEY_REFRESH, /* refresh key */
+	[0x3d] = KEY_F11, /* fullscreen key */
+	[0x3e] = KEY_LEFTMETA, /* overview key */
 	[0x3f] = KEY_BRIGHTNESSDOWN,
 	[0x40] = KEY_BRIGHTNESSUP,
 	[0x41] = KEY_PLAY,
@@ -98,6 +98,19 @@ const int keymap_fn[] = {
 	[0x24] = -2, /* j */
 	[0x25] = -3, /* k */
 	[0x26] = -4, /* l */
+
+	[0x3b] = -5, /* back keys */
+	[0x3c] = -6, /* refresh key */
+	[0x3d] = -7, /* fullscreen key */
+	[0x3e] = -8, /* overview key */
+	[0x3f] = -9,
+	[0x40] = -10,
+	[0x41] = -11,
+	[0x42] = -12,
+	[0x43] = -13,
+	[0x44] = -14,
+	[0x5d] = -15, /* Hamburger key */
+
 	[0xc8] = KEY_PAGEUP, /* up */
 	[0xcb] = KEY_HOME, /* left */
 	[0xcd] = KEY_END, /* right */
@@ -141,17 +154,6 @@ const int keymap_fn[] = {
 	[0x36] = KEY_RIGHTSHIFT,
 	[0x38] = KEY_LEFTALT,
 	[0x39] = KEY_SPACE,
-	[0x3b] = KEY_BACK,
-	[0x3c] = KEY_REFRESH,
-	[0x3d] = KEY_F11,
-	[0x3e] = KEY_LEFTMETA,
-	[0x3f] = KEY_BRIGHTNESSDOWN,
-	[0x40] = KEY_BRIGHTNESSUP,
-	[0x41] = KEY_PLAY,
-	[0x42] = KEY_MUTE,
-	[0x43] = KEY_VOLUMEDOWN,
-	[0x44] = KEY_VOLUMEUP,
-	[0x5d] = KEY_COMPOSE,
 	[0x9d] = KEY_RIGHTCTRL,
 	[0xb8] = KEY_RIGHTALT,
 	[0xd8] = KEY_LEFTALT,
@@ -163,9 +165,32 @@ const int keymap_combo_ctrl_alt_left[] = { KEY_LEFTCTRL, KEY_LEFTALT, KEY_LEFT, 
 const int keymap_combo_ctrl_alt_up[] = { KEY_LEFTCTRL, KEY_LEFTALT, KEY_UP, 0 };
 const int keymap_combo_ctrl_alt_down[] = { KEY_LEFTCTRL, KEY_LEFTALT, KEY_DOWN, 0 };
 const int keymap_combo_ctrl_alt_right[] = { KEY_LEFTCTRL, KEY_LEFTALT, KEY_RIGHT, 0 };
+const int keymap_combo_ctrl_alt_f1[] = { KEY_LEFTCTRL, KEY_LEFTALT, KEY_F1, 0 };
+const int keymap_combo_ctrl_alt_f2[] = { KEY_LEFTCTRL, KEY_LEFTALT, KEY_F2, 0 };
+const int keymap_combo_ctrl_alt_f3[] = { KEY_LEFTCTRL, KEY_LEFTALT, KEY_F3, 0 };
+const int keymap_combo_ctrl_alt_f4[] = { KEY_LEFTCTRL, KEY_LEFTALT, KEY_F4, 0 };
+const int keymap_combo_ctrl_alt_f5[] = { KEY_LEFTCTRL, KEY_LEFTALT, KEY_F5, 0 };
+const int keymap_combo_ctrl_alt_f6[] = { KEY_LEFTCTRL, KEY_LEFTALT, KEY_F6, 0 };
+const int keymap_combo_ctrl_alt_f7[] = { KEY_LEFTCTRL, KEY_LEFTALT, KEY_F7, 0 };
+const int keymap_combo_ctrl_alt_f8[] = { KEY_LEFTCTRL, KEY_LEFTALT, KEY_F8, 0 };
+const int keymap_combo_ctrl_alt_f9[] = { KEY_LEFTCTRL, KEY_LEFTALT, KEY_F9, 0 };
+const int keymap_combo_ctrl_alt_f10[] = { KEY_LEFTCTRL, KEY_LEFTALT, KEY_F10, 0 };
+const int keymap_combo_ctrl_alt_del[] = { KEY_LEFTCTRL, KEY_LEFTALT, KEY_DELETE, 0 };
+
 const int * const keymap_combo[] = {
 	keymap_combo_ctrl_alt_left,
 	keymap_combo_ctrl_alt_down,
 	keymap_combo_ctrl_alt_up,
-	keymap_combo_ctrl_alt_right
+	keymap_combo_ctrl_alt_right,
+	keymap_combo_ctrl_alt_f1,
+	keymap_combo_ctrl_alt_f2,
+	keymap_combo_ctrl_alt_f3,
+	keymap_combo_ctrl_alt_f4,
+	keymap_combo_ctrl_alt_f5,
+	keymap_combo_ctrl_alt_f6,
+	keymap_combo_ctrl_alt_f7,
+	keymap_combo_ctrl_alt_f8,
+	keymap_combo_ctrl_alt_f9,
+	keymap_combo_ctrl_alt_f10,
+	keymap_combo_ctrl_alt_del,
 };
