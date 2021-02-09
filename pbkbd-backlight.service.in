@@ -4,7 +4,4 @@ ConditionPathExists=/sys/class/leds/chromeos::kbd_backlight
 ConditionPathExists=/sys/bus/iio/devices
 
 [Service]
-ExecStart=/usr/local/sbin/pbkbd-backlight
-
-[Install]
-WantedBy=pbkbd.service
+ExecStart=@CMAKE_INSTALL_FULL_LIBEXECDIR@/pbkbd-backlight

@@ -10,10 +10,7 @@ userspace drivers for pixelbooks running vanilla kernel
 ## Partially working features
 
  * Sensors
-   - Accelerometer on the lid is mounted upside down, unconfigured systems would flip the screen accordingly
    - GNOME does not filter out noise from sensors, automatic brightness and automatic screen rotation is unreliable
- * Touchpad
-   - Gestures are not supported
 
 ## Completely unusable devices
 
@@ -23,7 +20,7 @@ userspace drivers for pixelbooks running vanilla kernel
 
 # Installing
 
-Run `make install` as root.
+Run `make install` as root, merge `/etc/libinput/local-overrides.quirks`, and enable `pb{backlight,kbd,kbd-backlight}.service`.
 
 ## Kernel options
 
@@ -41,7 +38,7 @@ Run `make install` as root.
 ## Prerequisites
 
  * A kernel with required kernel option selected
+ * CMake
  * Development tools
  * Development headers for
-   - fuse
-   - libev
+   - libevdev

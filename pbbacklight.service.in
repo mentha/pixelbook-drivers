@@ -4,7 +4,7 @@ ConditionPathExists=/sys/class/drm_dp_aux_dev
 
 [Service]
 Type=simple
-ExecStart=/usr/local/sbin/pbbacklight
+ExecStart=@CMAKE_INSTALL_FULL_LIBEXECDIR@/pbbacklight
 Restart=always
 
 [Install]

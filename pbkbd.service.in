@@ -2,8 +2,9 @@
 Description=Pixelbook Keyboard Driver
 
 [Service]
-ExecStart=/usr/local/sbin/pbkbd
+ExecStart=@CMAKE_INSTALL_FULL_LIBEXECDIR@/pbkbd
 
 [Install]
 WantedBy=getty.target
 WantedBy=multi-user.target
+Also=pbkbd-backlight.service
