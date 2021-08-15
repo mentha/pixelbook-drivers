@@ -19,7 +19,8 @@ configure_file("pbkbd-backlight.service.in" "pbkbd-backlight.service")
 configure_file("pbbacklight.service.in" "pbbacklight.service")
 
 set(SYSTEM_UNIT_DIR "${CMAKE_INSTALL_PREFIX}/lib/systemd/system" CACHE PATH "systemd system units dir")
-set(UDEV_DIR "${CMAKE_INSTALL_PREFIX}/lib/udev" CACHE PATH "udev data files dir")
+set(UDEV_HWDB_DIR "${CMAKE_INSTALL_PREFIX}/lib/udev/hwdb.d" CACHE PATH "udev hwdb dir")
+set(UDEV_RULES_DIR "${CMAKE_INSTALL_PREFIX}/lib/udev/rules.d" CACHE PATH "udev rules dir")
 
 install(TARGETS pbkbd pbkbd-backlight pbbacklight
 	RUNTIME DESTINATION "${CMAKE_INSTALL_LIBEXECDIR}")
@@ -29,8 +30,8 @@ install(FILES
 	"${CMAKE_BINARY_DIR}/pbbacklight.service"
 	DESTINATION "${SYSTEM_UNIT_DIR}")
 install(FILES 61-keyboard.hwdb
-	DESTINATION "${UDEV_DIR}/hwdb.d")
+	DESTINATION "${UDEV_HWDB_DIR}")
 install(FILES 61-sensor-pixelbook.rules
-	DESTINATION "${UDEV_DIR}/rules.d")
+	DESTINATION "${UDEV_RULES_DIR}")
 install(FILES local-overrides.quirks README.md
 	DESTINATION "${CMAKE_INSTALL_DOCDIR}")

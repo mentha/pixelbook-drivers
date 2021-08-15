@@ -1,0 +1,55 @@
+Name:    {{{ git_name }}}
+Version: {{{ git_version lead=0.1 }}}
+Release: 1%{?dist}
+Summary: Userspace drivers for pixelbooks.
+
+License: GPLv3+
+URL:     https://github.com/mentha/pixelbook-drivers
+VCS:     {{{ git_vcs }}}
+
+Source: {{{ git_pack }}}
+
+BuildRequires: gcc
+BuildRequires: gcc-c++
+BuildRequires: pkgconfig(libevdev)
+BuildRequires: cmake
+%systemd_ordering
+
+%description
+Userspace drivers for pixelbooks.
+
+%prep
+{{{ git_setup_macro }}}
+
+%build
+%cmake -DSYSTEM_UNIT_DIR=%{_unitdir} -DUDEV_HWDB_DIR=%{_udevhwdbdir} -DUDEV_RULES_DIR=%{_udevrulesdir}
+%cmake_build
+
+%install
+%cmake_install
+
+%post
+%systemd_post pbkbd.service pbkbd-backlight.service pbbacklight.service
+%udev_hwdb_update
+%udev_rules_update
+
+%preun
+%systemd_preun pbkbd.service pbkbd-backlight.service pbbacklight.service
+
+%postun
+%systemd_postun_with_restart pbkbd.service pbkbd-backlight.service pbbacklight.service
+%udev_hwdb_update
+%udev_rules_update
+
+%files
+%{_libexecdir}/pbkbd
+%{_libexecdir}/pbkbd-backlight
+%{_libexecdir}/pbbacklight
+%{_unitdir}/pbkbd*.service
+%{_unitdir}/pbbacklight.service
+%{_udevhwdbdir}/61-keyboard.hwdb
+%{_udevrulesdir}/61-sensor-pixelbook.rules
+%doc local-overrides.quirks README.md
+
+%changelog
+{{{ git_changelog }}}
