@@ -13,6 +13,7 @@ BuildRequires: gcc
 BuildRequires: gcc-c++
 BuildRequires: pkgconfig(libevdev)
 BuildRequires: cmake
+BuildRequires: systemd-rpm-macros
 %systemd_ordering
 
 %description
