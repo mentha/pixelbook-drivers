@@ -1,13 +1,13 @@
-Name:    {{{ git_name }}}
-Version: {{{ git_version lead=0.1 }}}
+Name:    {{{ git_dir_name }}}
+Version: {{{ git_dir_version lead=0.1 }}}
 Release: 1%{?dist}
 Summary: Userspace drivers for pixelbooks.
 
 License: GPLv3+
 URL:     https://github.com/mentha/pixelbook-drivers
-VCS:     {{{ git_vcs }}}
+VCS:     {{{ git_dir_vcs }}}
 
-Source: {{{ git_pack }}}
+Source: {{{ git_dir_pack }}}
 
 BuildRequires: gcc
 BuildRequires: gcc-c++
@@ -19,7 +19,7 @@ BuildRequires: cmake
 Userspace drivers for pixelbooks.
 
 %prep
-{{{ git_setup_macro }}}
+{{{ git_dir_setup_macro }}}
 
 %build
 %cmake -DSYSTEM_UNIT_DIR=%{_unitdir} -DUDEV_HWDB_DIR=%{_udevhwdbdir} -DUDEV_RULES_DIR=%{_udevrulesdir}
@@ -52,4 +52,4 @@ Userspace drivers for pixelbooks.
 %doc local-overrides.quirks README.md
 
 %changelog
-{{{ git_changelog }}}
+{{{ git_dir_changelog }}}
