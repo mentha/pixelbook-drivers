@@ -10,7 +10,6 @@ VCS:     {{{ git_dir_vcs }}}
 Source: {{{ git_dir_pack }}}
 
 BuildRequires: gcc
-BuildRequires: gcc-c++
 BuildRequires: pkgconfig(libevdev)
 BuildRequires: cmake
 BuildRequires: systemd-rpm-macros
@@ -30,27 +29,25 @@ Userspace drivers for pixelbooks.
 %cmake_install
 
 %post
-%systemd_post pbkbd.service pbkbd-backlight.service pbbacklight.service
+%systemd_post pbkbd.service pbkbd-backlight.service
 %udev_hwdb_update
 %udev_rules_update
 
 %preun
-%systemd_preun pbkbd.service pbkbd-backlight.service pbbacklight.service
+%systemd_preun pbkbd.service pbkbd-backlight.service
 
 %postun
-%systemd_postun_with_restart pbkbd.service pbkbd-backlight.service pbbacklight.service
+%systemd_postun_with_restart pbkbd.service pbkbd-backlight.service
 %udev_hwdb_update
 %udev_rules_update
 
 %files
 %{_libexecdir}/pbkbd
 %{_libexecdir}/pbkbd-backlight
-%{_libexecdir}/pbbacklight
 %{_unitdir}/pbkbd*.service
-%{_unitdir}/pbbacklight.service
 %{_udevhwdbdir}/61-keyboard.hwdb
 %{_udevrulesdir}/61-sensor-pixelbook.rules
-%doc local-overrides.quirks README.md
+%doc README.md
 
 %changelog
 {{{ git_dir_changelog }}}
